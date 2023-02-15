@@ -1,0 +1,13 @@
+<div class="contentHolder">
+  <div class="car" (click)="copyItem(item)" *ngFor="let item of filterItems">
+    <div class="front">
+      <img class="image" [src]="item.picture" />
+      <p class="opis">{{ item.name }}</p>
+    </div>
+    <div class="back">
+      <img class="image" [src]="item.picture" />
+      <p class="opis">{{ item.opis }}</p>
+    </div>
+  </div>
+</div>
+<lib-toastify-toast-container [autoClose]="1000"></lib-toastify-toast-container>

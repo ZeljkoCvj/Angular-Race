@@ -1,0 +1,55 @@
+.contentHolder {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  transition: 1s;
+}
+.image {
+  width: 150px;
+  padding: 2px;
+}
+.car {
+  transform-style: preserve-3d;
+  position: relative;
+  text-align: center;
+  font-size: 25px;
+  height: 170px;
+  border-radius: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+  transition: all 1s ease-out;
+}
+.car:hover {
+  transform: rotateX(180deg);
+}
+.front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+  border-radius: 10px;
+}
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: rgb(31, 26, 26);
+  transform: rotateX(180deg);
+  border-radius: 10px;
+  color: white;
+}
+@media only screen and (max-width: 1120) {
+  .contentHolder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .contentHolder {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
