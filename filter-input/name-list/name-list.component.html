@@ -1,0 +1,19 @@
+<button class="btnn" (click)="onClick()">Imena</button>
+
+<ul class="list-group" id="dispay" [style.display]="displayList">
+  <li
+    *ngFor="let item of items"
+    class="list-group-item"
+    (click)="listClose(item); prikaziPoruku()"
+  >
+    {{ item }}
+  </li>
+</ul>
+<div
+  *ngIf="ispisiPoruku"
+  id="notification"
+  class="alert alert-success"
+  role="alert"
+>
+  <strong>Text je uspesno kopiran!</strong>
+</div>
