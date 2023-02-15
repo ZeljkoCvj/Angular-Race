@@ -48,6 +48,7 @@ export class SlectedDriversRaceComponent implements OnInit {
 
     this.clickCount++;
     if (this.clickCount === 1) {
+      this.dataService.setDisabled(true);
       this.buttonText = "Zapocnite novu trku";
 
       this.isDisplayed = !this.isDisplayed;

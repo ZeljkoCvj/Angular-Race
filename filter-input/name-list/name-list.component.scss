@@ -5,8 +5,12 @@
   background-color: gray;
   cursor: pointer;
   font-family: Arial, Helvetica, sans-serif;
+  transition: 0.5s;
 }
-
+.btnn:hover {
+  padding: 0.7px 22px;
+  transition: 0.5s;
+}
 .list-group {
   font-family: Arial, Helvetica, sans-serif;
 }

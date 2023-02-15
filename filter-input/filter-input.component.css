@@ -6,9 +6,12 @@
 .input-group > input {
   box-shadow: none;
   font-family: Arial, Helvetica, sans-serif;
-  border: 1px solid black;
 }
 
 .input-group > input:focus {
   box-shadow: none;
+}
+
+.border-black {
+  border-color: black;
 }/*# sourceMappingURL=filter-input.component.css.map */

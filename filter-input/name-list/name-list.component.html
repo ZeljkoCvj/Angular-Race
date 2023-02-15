@@ -1,4 +1,11 @@
-<button class="btnn" (click)="onClick()">Imena</button>
+<button
+  class="btnn"
+  *ngIf="!isButtonDisabled"
+  [disabled]="isButtonDisabled"
+  (click)="onClick()"
+>
+  Imena
+</button>
 
 <ul class="list-group" id="dispay" [style.display]="displayList">
   <li

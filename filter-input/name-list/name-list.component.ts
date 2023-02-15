@@ -1,11 +1,11 @@
-import { Component } from "@angular/core";
-
+import { Component, OnInit } from "@angular/core";
+import { DataService } from "src/data_service/service";
 @Component({
   selector: "app-name-list",
   templateUrl: "./name-list.component.html",
   styleUrls: ["./name-list.component.scss"],
 })
-export class NameListComponent {
+export class NameListComponent implements OnInit {
   items = [
     "Rivera Clarke",
     "Guadalupe Garza",
@@ -14,11 +14,12 @@ export class NameListComponent {
     "Taylor Massey",
     "Salazar Hurley",
   ];
-
+  isButtonDisabled = false;
+  isDisabled = true;
   displayList = "none";
   ispisiPoruku = false;
   counterClick = 0;
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   onClick() {
     this.displayList = this.displayList === "none" ? "block" : "none";
@@ -32,5 +33,10 @@ export class NameListComponent {
     setTimeout(() => {
       this.ispisiPoruku = false;
     }, 500);
+  }
+  ngOnInit(): void {
+    this.dataService.isDisabled$.subscribe((isDisabled) => {
+      this.isButtonDisabled = isDisabled;
+    });
   }
 }

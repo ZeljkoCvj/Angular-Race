@@ -25,6 +25,9 @@ export class FilterInputComponent implements OnInit {
     return regex.test(inputStr);
   }
   validacijaInputa() {
+    if (!this.inputStr) {
+      return { "border-black": true };
+    }
     return {
       "is-invalid": !this.validateInput(this.inputStr),
       "is-valid": this.validateInput(this.inputStr),
