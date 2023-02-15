@@ -2,47 +2,18 @@ import { Component, OnInit } from "@angular/core";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { JsonService } from "../json_service/json";
 import { DataService } from "../data_service/service";
-
-interface CarResponse {
-  _id: string;
-  index: number;
-  guid: string;
-  isActive: boolean;
-  balance: string;
-  picture: string;
-  age: number;
-  opis: string;
-  brzina: number;
-  eyeColor: string;
-  name: string;
-  gender: string;
-  company: string;
-  email: string;
-  phone: string;
-  address: string;
-  about: string;
-  registered: string;
-  latitude: number;
-  longitude: number;
-  tags: string[];
-  friends: Friend[];
-  greeting: string;
-  favoriteFruit: string;
-}
-interface Friend {
-  id: number;
-  name: string;
-}
+import { CarsData } from "../models/Interface";
 @Component({
   selector: "app-filter-input",
   templateUrl: "./filter-input.component.html",
   styleUrls: ["./filter-input.component.scss"],
 })
 export class FilterInputComponent implements OnInit {
+  carsData!: CarsData;
   faMagnifyingGlass = faMagnifyingGlass;
-  data!: Partial<CarResponse>[];
-  carData: Partial<CarResponse>[] = [];
-  filterItems: Partial<CarResponse>[] = [];
+  data!: CarsData[];
+  carData: CarsData[] = [];
+  filterItems: CarsData[] = [];
   inputStr = "";
   constructor(
     private JsonService: JsonService,
@@ -62,7 +33,7 @@ export class FilterInputComponent implements OnInit {
 
   ngOnInit(): void {
     this.JsonService.getData().subscribe((data) => {
-      this.carData = data as Partial<CarResponse>[];
+      this.carData = data as CarsData[];
     });
   }
   inputField() {
@@ -81,7 +52,7 @@ export class FilterInputComponent implements OnInit {
 
     this.dataService.updateFilterItems(this.filterItems);
     if (inputValue && this.filterItems) {
-      this.filterItems.map((item: Partial<CarResponse>) => {
+      this.filterItems.map((item: CarsData) => {
         return item;
       });
     }

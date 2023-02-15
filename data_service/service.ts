@@ -31,26 +31,29 @@ interface Friend {
 
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { CarsData } from "../models/Interface";
 
 @Injectable({
   providedIn: "root",
 })
 export class DataService {
-  private filterItems = new Subject<Partial<CarResponse>[]>();
+  carsData!: CarsData;
+  private filterItems = new Subject<CarsData[]>();
   filterItems$ = this.filterItems.asObservable();
 
-  private carArraySubject = new Subject<Partial<CarResponse>[]>();
+  private carArraySubject = new Subject<CarsData[]>();
   carArray$ = this.carArraySubject.asObservable();
 
   private carbrzinaSubject = new Subject<number[]>();
   brzina$ = this.carbrzinaSubject.asObservable();
+
   constructor() {}
 
-  updateFilterItems(filterItems: Partial<CarResponse>[]) {
+  updateFilterItems(filterItems: CarsData[]) {
     this.filterItems.next(filterItems);
   }
 
-  updateCarArray(carArray: Partial<CarResponse>[]) {
+  updateCarArray(carArray: CarsData[]) {
     this.carArraySubject.next(carArray);
   }
 

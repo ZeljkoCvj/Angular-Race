@@ -8,6 +8,7 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastService, AngularToastifyModule } from "angular-toastify";
 import { ListSelectedDriversComponent } from "./list-selected-drivers/list-selected-drivers.component";
+import { SlectedDriversRaceComponent } from './slected-drivers-race/slected-drivers-race.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ListSelectedDriversComponent } from "./list-selected-drivers/list-selec
     FilterInputComponent,
     NameListComponent,
     ListSelectedDriversComponent,
+    SlectedDriversRaceComponent,
   ],
   imports: [
     BrowserModule,

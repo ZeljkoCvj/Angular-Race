@@ -1,0 +1,16 @@
+<div class="race" *ngIf="carArray.length > 0">
+  <p *ngFor="let item of carArray; let i = index" class="raceCar">
+    <img class="cimage" [src]="item.picture" [ngClass]="getRank(i)" />
+
+    <button *ngIf="isDisplayed" class="deleteCar" (click)="removeItem(i)">
+      X
+    </button>
+  </p>
+</div>
+<button
+  *ngIf="carArray.length > 0 && disabled"
+  (click)="pokreniTrku()"
+  class="butn"
+>
+  {{ buttonText }}
+</button>

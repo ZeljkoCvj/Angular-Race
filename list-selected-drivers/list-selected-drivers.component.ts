@@ -2,44 +2,16 @@ import { Component, OnInit } from "@angular/core";
 import { DataService } from "../data_service/service";
 import { Subscription } from "rxjs";
 import { ToastService } from "angular-toastify";
-interface CarResponse {
-  _id: string;
-  index: number;
-  guid: string;
-  isActive: boolean;
-  balance: string;
-  picture: string;
-  age: number;
-  opis: string;
-  brzina: number;
-  eyeColor: string;
-  name: string;
-  gender: string;
-  company: string;
-  email: string;
-  phone: string;
-  address: string;
-  about: string;
-  registered: string;
-  latitude: number;
-  longitude: number;
-  tags: string[];
-  friends: Friend[];
-  greeting: string;
-  favoriteFruit: string;
-}
-interface Friend {
-  id: number;
-  name: string;
-}
+import { CarsData } from "../models/Interface";
 @Component({
   selector: "app-list-selected-drivers",
   templateUrl: "./list-selected-drivers.component.html",
   styleUrls: ["./list-selected-drivers.component.scss"],
 })
 export class ListSelectedDriversComponent implements OnInit {
-  carArray: Partial<CarResponse>[] = [];
-  filterItems: Partial<CarResponse>[] = [];
+  carsData!: CarsData;
+  carArray: CarsData[] = [];
+  filterItems: CarsData[] = [];
   private filterItemsSubscription: Subscription = new Subscription();
 
   inputStr!: string;
@@ -59,7 +31,7 @@ export class ListSelectedDriversComponent implements OnInit {
     );
   }
 
-  copyItem(item: Partial<CarResponse>) {
+  copyItem(item: CarsData) {
     this.carArray.push(item);
     this.brzinaNiz.push(item.brzina!);
     const inputElement = document.querySelector(
