@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { DataService } from "../data_service/service";
+import { DataService } from "../../data_service/service";
 import { Subscription } from "rxjs";
 import { ToastService } from "angular-toastify";
-import { CarsData } from "../models/Interface";
+import { CarsData } from "../../models/Interface";
 @Component({
   selector: "app-list-selected-drivers",
   templateUrl: "./list-selected-drivers.component.html",

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { DataService } from "../data_service/service";
-import { CarsData } from "../models/Interface";
+import { DataService } from "../../data_service/service";
+import { CarsData } from "../../models/Interface";
 @Component({
   selector: "app-slected-drivers-race",
   templateUrl: "./slected-drivers-race.component.html",
