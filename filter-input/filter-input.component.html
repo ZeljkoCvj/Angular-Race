@@ -1,1 +1,20 @@
+<div class="offset-lg-12">
+  <div class="input-group">
+    <input
+      class="form-control"
+      placeholder="Unesi ime vozaca"
+      id="exampleInput"
+      type="text"
+      [ngClass]="validacijaInputa()"
+      (input)="inputField()"
+      [(ngModel)]="inputStr"
+    />
+    <div class="input-group-append">
+      <button class="btn btn-secondary">
+        <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
 <app-name-list></app-name-list>
